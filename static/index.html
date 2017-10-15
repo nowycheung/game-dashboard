@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <div id="DashboardApp">
+        <div class="menu-horizontal">
+            <div class="menu-heading"></div>
+            <ul class="menu-list">
+                <li v-for="page in pages" v-bind="{'data-api': page.dataAPI, 'class': 'menu-item ' + (page.id === currentPage ? 'menu-selected': '')}">
+                    {{page.text}}
+                    <span class="favorite-count-tag" v-if="favoriteListCount > 0 && page.id ==='portfolio' && gamesKey.length > 0">{{favoriteListCount}}</span>
+                </li>
+            </ul>
+            <input type="search" placeholder="Search" class="search" v-model="search">
+        </div>
+        <div v-if="error" >
+            <div class="error-message">{{error.message}}</div>
+            <div v-bind="{'class': error.class }"></div>
+        </div>
+        <div v-else>
+            <div class="game-list-wrapper">
+                <div class="game-item-wrapper" v-for="key in filteredGamesKey">
+                    <div class="game-screenshot" v-lazy:background-image="gamesObject[key].lazyLoadImage"></div>
+                    <div class="game-name">
+                        <a href="https://king.com/games" target="_blank">{{ gamesObject[key].name }}</a>
+                        <span v-bind="{'data-api': gamesObject[key].dataAPI, 'class': 'heart ' + gamesObject[key].isFavorite }">&hearts;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-lazyload/1.1.3/vue-lazyload.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
+    <script type="text/javascript" src="./utils.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "game-dashboard",
+  "version": "1.0.0",
+  "description": "King Code Assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["game"],
+  "author": "Nowy Condro",
+  "license": "MIT"
+}

@@ -1,0 +1,175 @@
+/*
+    Hide the Vue elements when it is not ready
+*/
+#DashboardApp [v-for],
+#DashboardApp [v-if],
+#DashboardApp [v-else] {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-heading {
+    background: url(https://k1.midasplayer.com/images/logos/kingLogoRebrand.svg) no-repeat center center;
+    background-size: contain;
+    width: 46px;
+    margin: 10px;
+    padding: 8px 30px;
+    height: 26px;
+    display: inline-block;
+}
+
+.menu-horizontal {
+    background-color: #000;
+}
+
+.menu-list {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.menu-list li {
+    color: #aaa;
+    display: inline-block;
+    padding: 12px 14px 14px 14px;
+    margin-top: 18px;
+    cursor: pointer;
+}
+
+.menu-item.menu-selected {
+    background-color: #fff;
+    color: #333;
+    font-weight: 800;
+    border-bottom: green solid;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.game-list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 30px;
+}
+
+.game-item-wrapper {
+    transform: scale(1);
+    width: 170px;
+    padding: 30px 40px;
+    transition: transform 0.6s;
+    -webkit-transition: transform 0.6s;
+}
+
+.game-item-wrapper:hover {
+    transform: scale(1.2);
+}
+
+.game-item-wrapper.expand {
+    width: 100%;
+}
+
+.game-screenshot {
+    height: 80px;
+    text-align: center;
+    transition: all 0.6s;
+    -webkit-transition: all 0.6s;
+    background: url(http://www.goldderby.com/wp-content/themes/vip/pmc-goldderby/assets/images/loading.gif) no-repeat center center;
+}
+
+.game-name {
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: indianred;
+}
+
+.heart {
+    color: #999;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 0px;
+    user-select: none;
+}
+
+.heart.true {
+    color: red;
+}
+
+.favorite-count-tag {
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    font-weight: 800;
+    top: 14px;
+    right: -4px;
+}
+
+.search {
+    width: 74px;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
+    padding: .6em;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+}
+
+.search:focus {
+    width: 30vw;
+    font-size: 16px;
+}
+
+.error-message {
+    text-align: center;
+    padding: 30px 0;
+    color: #333;
+}
+
+.no-games-error {
+    width: 100%;
+    height: 298px;
+    background: url(https://k1.midasplayer.com/images/error/bg_startDoor_closed.png) no-repeat center center;
+}
+
+.no-portfolio-error {
+    width: 100%;
+    height: 412px;
+    background: url(https://k1.midasplayer.com/images/gameCharacters/panda.png) no-repeat center center;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .game-item-wrapper {
+        width: 120px;
+        padding: 30px;
+    }
+
+    .game-screenshot {
+        height: 56px;
+    }
+
+    .icono-heart {
+        display: block;
+        margin: 10px auto;
+    }
+}
